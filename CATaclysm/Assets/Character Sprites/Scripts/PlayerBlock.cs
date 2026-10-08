@@ -22,6 +22,8 @@ public class PlayerBlock : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerAni = GetComponent<PlayerAnimation>();
+        playerAction = GetComponent<PlayerAction>();
+        playerAtk = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class PlayerBlock : MonoBehaviour
             return;
         }
 
-        if (!isBlock && Input.GetMouseButton(1))
+        if (!isBlock && Input.GetMouseButtonDown(1))
         {
             PerformBlock();
         }
@@ -44,22 +46,34 @@ public class PlayerBlock : MonoBehaviour
 
     void PerformBlock()
     {
+        isBlock = true;
+
+        string statePlay = "";
+
         //finds the last direction to play the right block animation that faces the same direction
         switch (playerAni.lastDir)
         {
             case "right":
-                animator.Play(block_right);
+                statePlay = (block_right);
                 break;
             case "left":
-                animator.Play(block_left);
+                statePlay = (block_left);
                 break;
             case "up":
-                animator.Play(block_up);
+                statePlay = (block_up);
                 break;
             case "down":
-                animator.Play(block_down);
+                statePlay = (block_down);
                 break;
         }
+
+        if (!string.IsNullOrEmpty(statePlay))
+        {
+            animator.Play(statePlay, 0, 0f);
+
+        }
+       
+
 
         Invoke(nameof(ResetBlock), blockLength);
 

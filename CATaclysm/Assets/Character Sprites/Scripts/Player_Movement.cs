@@ -12,18 +12,13 @@ public class Player_Movement : MonoBehaviour
     void Start()
     {
         playerAtk = GetComponent<PlayerAttack>();
+        playerBlock = GetComponent<PlayerBlock>();
+        playerAction = GetComponent<PlayerAction>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-
-        Vector3 direction = new Vector3(x, y, 0f).normalized;
-
-        transform.position += direction * speed * Time.deltaTime;
-
         //stop movement while attacking
         if (playerAtk != null && playerAtk.isAtk)
         {
@@ -37,6 +32,15 @@ public class Player_Movement : MonoBehaviour
         {
             return;
         }
+
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(x, y, 0f).normalized;
+
+        transform.position += direction * speed * Time.deltaTime;
+
+        
 
     }
 }

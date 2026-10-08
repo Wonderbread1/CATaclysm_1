@@ -45,21 +45,31 @@ public class PlayerAction : MonoBehaviour
 
     void PerformAction()
     {
+        isAction = true;
+
+        string statePlay = "";
+
         //finds the last direction to play the right action animation that faces the same direction
         switch (playerAni.lastDir)
         {
             case "right":
-                animate.Play(action_right);
+                statePlay = (action_right);
                 break;
             case "left":
-                animate.Play(action_left);
+                statePlay = (action_left);
                 break;
             case "up":
-                animate.Play(action_up);
+                statePlay = (action_up);
                 break;
             case "down":
-                animate.Play(action_down);
+                statePlay = (action_down);
                 break;
+        }
+
+        if (!string.IsNullOrEmpty(statePlay))
+        {
+            animate.Play(statePlay, 0, 0f);
+
         }
 
         Invoke(nameof(ResetAction), actionLength);
