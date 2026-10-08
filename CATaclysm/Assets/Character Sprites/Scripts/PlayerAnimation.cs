@@ -3,6 +3,10 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator animate;
+    private PlayerAttack playerAtk;
+    private PlayerBlock playerBlock;
+    private PlayerAction playerAction;
+
     //for walk cycle animations
     public string walk_left = "MC_Walk_Left_Clip";
     public string walk_right = "MC_Walk_Right_Clip";
@@ -16,17 +20,33 @@ public class PlayerAnimation : MonoBehaviour
     public string idle_down = "MC_Idle_Down_Clip";
 
     //track last direction
-    private string lastDir;
+    public string lastDir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animate = GetComponent<Animator>();
+        playerAtk = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //stops movement animations
+        if (playerAtk != null && playerAtk.isAtk)
+        {
+            return;
+        }
+        if (playerBlock != null && playerBlock.isBlock)
+        {
+            return;
+        }
+        if (playerAction != null && playerAction.isAction)
+        {
+            return;
+        }
+
+        //animation plays when that key is pressed down
         if (Input.GetKey(KeyCode.D))
         {
             animate.Play(walk_right);
@@ -49,6 +69,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
         {
+            //keep last direction so character stays facing that way
             switch (lastDir)
             {
                 case "right":
