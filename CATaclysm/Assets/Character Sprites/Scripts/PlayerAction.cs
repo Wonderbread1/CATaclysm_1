@@ -23,6 +23,8 @@ public class PlayerAction : MonoBehaviour
     {
         animate = GetComponent<Animator>();
         playerAni = GetComponent<PlayerAnimation>(); 
+        playerBlock = GetComponent<PlayerBlock>();
+        playerAtk = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
