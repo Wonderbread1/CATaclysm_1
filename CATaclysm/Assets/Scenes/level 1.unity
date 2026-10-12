@@ -2207,14 +2207,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.3018315
     width: 1
-    height: 1
+    height: 0.3956044
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
-  orthographic size: 0.9
+  orthographic size: 0.703125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
