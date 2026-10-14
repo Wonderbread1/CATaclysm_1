@@ -1015,9 +1015,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1762291115}
-    - targetCorrespondingSourceObject: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1762291114}
   m_SourcePrefab: {fileID: 100100000, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
 --- !u!1001 &163258789
@@ -13936,18 +13933,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.34383202, y: 0.50127816}
   m_EdgeRadius: 0
---- !u!114 &1762291115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762291110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4eb3465bdeeee4b90541ef752beee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BreakableBarrel
 --- !u!1001 &1764960086
 PrefabInstance:
   m_ObjectHideFlags: 0
