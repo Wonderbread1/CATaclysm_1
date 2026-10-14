@@ -45,38 +45,37 @@ public class PlayerAttack : MonoBehaviour
         {
             return;
         }
-       
 
-        if (!isAtk && Input.GetMouseButton(0))
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            PerformAttack();
+           PerformAttack(atk_right);
+            
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            PerformAttack(atk_up);
+           
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            PerformAttack(atk_down);
+            
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            PerformAttack(atk_left);
+            
         }
     }
 
-    void PerformAttack()
+    void PerformAttack(string animationName)
     {
         isAtk = true;
 
-        string statePlay = "";
+       
 
-        //finds the last direction to play the right attack animation that faces the same direction
-        switch (playerAni.lastDir)
-        {
-            case "right":
-                statePlay = atk_right;
-                break;
-            case "left":
-                statePlay = atk_left;
-                break;
-            case "up":
-                statePlay = atk_up;
-                break;
-            case "down":
-                statePlay = atk_down;
-                break;
-        }
-
-        animate.Play(statePlay, 0, 0f);
+        animate.Play(animationName, 0, 0f);
 
         Invoke(nameof(ResetAtk), atkLength);
 

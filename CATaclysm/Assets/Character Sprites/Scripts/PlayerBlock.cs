@@ -38,7 +38,7 @@ public class PlayerBlock : MonoBehaviour
             return;
         }
 
-        if (!isBlock && Input.GetMouseButtonDown(1))
+        if (!isBlock && Input.GetKeyDown(KeyCode.Q))
         {
             PerformBlock();
         }
