@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7478843606308658311
+--- !u!1001 &4620247006525532919
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,47 +8,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2253911629886400664, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: -2253911629886400664, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_Name
-      value: Lever Main 1
+      value: 3 Key Door Animation
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0987397
+      value: -2.9345627
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.1364717
+      value: 2.9379852
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+    - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -56,4 +56,4 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: -8435245712485981826, guid: f8ff1827beb0554439214b68ff9a1c0f, type: 3}
+  m_SourcePrefab: {fileID: -8435245712485981826, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
