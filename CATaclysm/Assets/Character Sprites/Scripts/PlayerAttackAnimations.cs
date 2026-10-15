@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttackAnimations : MonoBehaviour
 {
     private Animator animate;
-    private PlayerAnimation playerAni;
     private PlayerBlock playerBlock;
     private PlayerAction playerAction;
-    private PlayerAttack playerAtk;
+    private PlayerAttackAnimations playerAtk;
+
     
 
     //Get animation for attack
@@ -19,15 +19,21 @@ public class PlayerAttack : MonoBehaviour
 
     public bool isAtk = false;
 
+    
+
+  
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animate = GetComponent<Animator>();
-        playerAni = GetComponent<PlayerAnimation>();
         playerBlock = GetComponent<PlayerBlock>();
         playerAction = GetComponent<PlayerAction>();
-        playerAtk = GetComponent<PlayerAttack>();
+        playerAtk = GetComponent<PlayerAttackAnimations>();
+
+        
+       
     }
 
     // Update is called once per frame
@@ -67,25 +73,31 @@ public class PlayerAttack : MonoBehaviour
             PerformAttack(atk_left);
             
         }
+
     }
 
     void PerformAttack(string animationName)
     {
         isAtk = true;
 
+        
        
 
         animate.Play(animationName, 0, 0f);
 
         Invoke(nameof(ResetAtk), atkLength);
 
+        
 
     }
 
     private void ResetAtk()
     {
-       isAtk = false;
+        isAtk = false;
+
+       
     }
+    
 
-
+    
 }

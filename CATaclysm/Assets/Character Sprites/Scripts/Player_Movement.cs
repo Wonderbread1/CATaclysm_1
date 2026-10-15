@@ -4,14 +4,14 @@ public class Player_Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
 
-    private PlayerAttack playerAtk;
+    private PlayerAttackAnimations playerAtk;
     private PlayerBlock playerBlock;
     private PlayerAction playerAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerAtk = GetComponent<PlayerAttack>();
+        playerAtk = GetComponent<PlayerAttackAnimations>();
         playerBlock = GetComponent<PlayerBlock>();
         playerAction = GetComponent<PlayerAction>();
     }

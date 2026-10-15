@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator animate;
-    private PlayerAttack playerAtk;
+    private PlayerAttackAnimations playerAtk;
     private PlayerBlock playerBlock;
     private PlayerAction playerAction;
 
@@ -26,7 +26,7 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         animate = GetComponent<Animator>();
-        playerAtk = GetComponent<PlayerAttack>();
+        playerAtk = GetComponent<PlayerAttackAnimations>();
         playerBlock = GetComponent<PlayerBlock>();
         playerAction = GetComponent<PlayerAction>();
     }

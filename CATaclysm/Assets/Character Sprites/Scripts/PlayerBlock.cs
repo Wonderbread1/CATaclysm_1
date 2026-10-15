@@ -5,7 +5,7 @@ public class PlayerBlock : MonoBehaviour
     private Animator animator;
     private PlayerAnimation playerAni;
     private PlayerAction playerAction;
-    private PlayerAttack playerAtk;
+    private PlayerAttackAnimations playerAtk;
 
     //animations for block
     public string block_right = "MC_Block_Right_Clip";
@@ -23,7 +23,7 @@ public class PlayerBlock : MonoBehaviour
         animator = GetComponent<Animator>();
         playerAni = GetComponent<PlayerAnimation>();
         playerAction = GetComponent<PlayerAction>();
-        playerAtk = GetComponent<PlayerAttack>();
+        playerAtk = GetComponent<PlayerAttackAnimations>();
     }
 
     // Update is called once per frame

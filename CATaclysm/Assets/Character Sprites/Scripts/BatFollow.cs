@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyFollow : MonoBehaviour
+public class BatFollow : MonoBehaviour
 {
 
     private Transform player_pos;
@@ -13,10 +13,15 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] private float attack_dis = 1.2f;
     [SerializeField] private float followThrough_dis = 2.5f;
 
-    private enum State {Chasing, FollowThrough }
+    private enum State {Chasing, FollowThrough, Retreat }
     private State curr_state = State.Chasing;
 
     private Vector2 follow_through;
+    private Vector2 retreat_from_target;
+
+    [SerializeField] private float damage = 1f;
+
+    private bool has_Atk = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +56,25 @@ public class EnemyFollow : MonoBehaviour
 
                     curr_state = State.FollowThrough;
                 }
+
+                if (player_pos != null && curr_state != State.Retreat)
+                {
+                    float dis_player = Vector2.Distance(transform.position, player_pos.position);
+                    if(dis_player < 0.2f)
+                    {
+                        if (!has_Atk)
+                        {
+                            Debug.Log("Bat touched player!");
+                            Health playerHealth = player_pos.GetComponent<Health>();
+                            if (playerHealth != null)
+                            {
+                                playerHealth.TakeDamage(damage);
+                                has_Atk = true;
+                            }
+                        }
+                    }
+                        
+                }
                 break;
 
             case State.FollowThrough:
@@ -62,14 +86,37 @@ public class EnemyFollow : MonoBehaviour
                 if (Vector2.Distance(transform.position, follow_through) < 0.1f)
                 {
                     curr_state = State.Chasing;
+                    has_Atk = false; 
+                }
+                break;
+
+            case State.Retreat:
+                transform.position = Vector2.MoveTowards(transform.position, retreat_from_target, speed * 1.6f * Time.deltaTime);
+
+                if (Vector2.Distance(transform.position, retreat_from_target) < 0.1f)
+                {
+                    curr_state = State.Chasing;
                 }
                 break;
 
         }
 
-
-
-            
-      
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player_Attack") && curr_state != State.Retreat)
+        {
+            Debug.Log("bat was hit");
+
+            Vector2 return_Dir = (transform.position - player_pos.position).normalized;
+            retreat_from_target = (Vector2)transform.position + (return_Dir * 1.6f);
+
+            curr_state = State.Retreat;
+
+            has_Atk = false;
+        }
+    }
+    
+
 }
