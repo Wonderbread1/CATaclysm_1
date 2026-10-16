@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7371644360913174572}
   m_Layer: 0
   m_Name: Level_3_Key_Pickup 1
-  m_TagString: Untagged
+  m_TagString: Level3Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

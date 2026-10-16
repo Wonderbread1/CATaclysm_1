@@ -11,6 +11,9 @@ public class PickupPromptDetector : MonoBehaviour
 
     private PlayerKeyInventory keyInventory;
 
+    // ADDED: Consumable inventory
+    private PlayerItemInventory itemInventory;
+
     private DoorInteraction nearbyDoor;
     private ThreeKeyDoor nearbyThreeKeyDoor;
     private ReturnDoor nearbyReturnDoor;
@@ -18,9 +21,15 @@ public class PickupPromptDetector : MonoBehaviour
     private GameObject nearbyKey;
     private ObjectiveKeyPickup nearbyObjectiveKey;
 
+    // ADDED: Nearby consumable pickup
+    private GameObject nearbyConsumable;
+
     private void Start()
     {
         keyInventory = GetComponent<PlayerKeyInventory>();
+
+        // ADDED
+        itemInventory = GetComponent<PlayerItemInventory>();
     }
 
     private void Update()
@@ -32,6 +41,9 @@ public class PickupPromptDetector : MonoBehaviour
         nearbyReturnDoor = null;
         nearbyKey = null;
         nearbyObjectiveKey = null;
+
+        // ADDED
+        nearbyConsumable = null;
 
         float closestKeyDistance = interactionRange;
 
@@ -72,6 +84,16 @@ public class PickupPromptDetector : MonoBehaviour
             {
                 // Preserve Bandage/TNT proximity prompts.
                 itemNearby = true;
+
+                // ADDED: Detect consumables by tag
+                if (item.CompareTag("TNT") ||
+                    item.CompareTag("Bandage"))
+                {
+                    if (nearbyConsumable == null)
+                    {
+                        nearbyConsumable = item.gameObject;
+                    }
+                }
             }
         }
 
@@ -240,6 +262,28 @@ public class PickupPromptDetector : MonoBehaviour
             Debug.Log("Main objective key picked up!");
 
             Destroy(nearbyObjectiveKey.gameObject);
+        }
+
+        // ADDED: Collect TNT and bandages
+        else if (nearbyConsumable != null &&
+                 itemInventory != null)
+        {
+            bool collected = false;
+
+            if (nearbyConsumable.CompareTag("TNT"))
+            {
+                collected = itemInventory.CollectTNT();
+            }
+            else if (nearbyConsumable.CompareTag("Bandage"))
+            {
+                collected = itemInventory.CollectBandage();
+            }
+
+            // Only remove the item if inventory has room.
+            if (collected)
+            {
+                Destroy(nearbyConsumable);
+            }
         }
 
         // Insert a key or open the Level 3 door.

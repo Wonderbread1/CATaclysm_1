@@ -10,6 +10,8 @@ TagManager:
   - Level3Key
   - ObjectiveKey
   - Rock
+  - TNT
+  - Bandage
   layers:
   - Default
   - TransparentFX
