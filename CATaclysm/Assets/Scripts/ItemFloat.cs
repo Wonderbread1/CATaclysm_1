@@ -12,6 +12,11 @@ public class ItemFloat : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 shadowStartScale;
 
+    void Awake()
+    {
+        enabled = true;
+    }
+
     void Start()
     {
         startPosition = transform.localPosition;
