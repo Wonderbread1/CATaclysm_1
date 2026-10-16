@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
    
 
 
-    public float maxHealth = 100f;
+    public float maxHealth = 6f;
     public float curr_Health;
 
     public List<Hearts> hearts;
