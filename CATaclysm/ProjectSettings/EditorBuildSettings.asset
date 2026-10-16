@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level 3.unity
     guid: 65a521a599615fd46b9f0df2b4db9d8b
+  - enabled: 1
+    path: Assets/Scenes/key room.unity
+    guid: 232b10d1b63f3f54984c12a14087eef5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

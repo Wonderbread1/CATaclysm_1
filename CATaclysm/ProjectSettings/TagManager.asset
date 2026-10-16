@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Player_Attack
+  - Level1Key
+  - Level3Key
+  - ObjectiveKey
   layers:
   - Default
   - TransparentFX

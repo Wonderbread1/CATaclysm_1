@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7543931993028554815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774559731241253408}
+  m_Layer: 0
+  m_Name: Level 2 Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774559731241253408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543931993028554815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04038, y: -2.1201, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5659633290884785848}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &900513863864463332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 774559731241253408}
+    m_Modifications:
+    - target: {fileID: 2158537089347905205, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158537089347905205, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -794634965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592447776344259481, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 02a1eba29c496c8458a01f976a8372c7, type: 2}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.63899755
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7762413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699780750893293881, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      propertyPath: m_Name
+      value: Basic Level Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5699780750893293881, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2053652899597430420}
+    - targetCorrespondingSourceObject: {fileID: 5699780750893293881, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8535175885785216794}
+    - targetCorrespondingSourceObject: {fileID: 5699780750893293881, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3709448736350114573}
+  m_SourcePrefab: {fileID: 100100000, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+--- !u!95 &3730355418883200125 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4592447776344259481, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+  m_PrefabInstance: {fileID: 900513863864463332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4856838570002747101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5699780750893293881, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+  m_PrefabInstance: {fileID: 900513863864463332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2053652899597430420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856838570002747101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c157f20b7177ca54caa5b23a8bac7917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorInteraction
+  doorAnimator: {fileID: 3730355418883200125}
+  levelTransition: {fileID: 0}
+--- !u!114 &8535175885785216794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856838570002747101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f88c49d348494499738b7a56f70a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: 0
+  sortingScale: 100
+--- !u!114 &3709448736350114573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856838570002747101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50fe8965b7d01f459fad7671e56b7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeverDoorMarker
+  puzzleManager: {fileID: 0}
+--- !u!4 &5659633290884785848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4824563476093274460, guid: 903f156fc365bc448a4fd498560f2fa5, type: 3}
+  m_PrefabInstance: {fileID: 900513863864463332}
+  m_PrefabAsset: {fileID: 0}
