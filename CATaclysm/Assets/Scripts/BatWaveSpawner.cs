@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using System.Collections;
 
 public class BatWaveSpawner : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class BatWaveSpawner : MonoBehaviour
     public int totalWaves = 4;
     public int batsPerWave = 3;
     public float timeBetweenWaves = 2f;
+
+    [Header("Initial Spawn Delay")]
+    public float initialSpawnDelay = 15f;
 
     [Header("Spawn Spacing")]
     public float minimumBatSpacing = 0.75f;
@@ -28,6 +32,13 @@ public class BatWaveSpawner : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(DelayedFirstWave());
+    }
+
+    IEnumerator DelayedFirstWave()
+    {
+        yield return new WaitForSeconds(initialSpawnDelay);
+
         SpawnWave();
     }
 

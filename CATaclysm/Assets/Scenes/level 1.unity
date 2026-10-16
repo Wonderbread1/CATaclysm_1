@@ -5126,9 +5126,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.054629628
-    width: 1.0744792
-    height: 0.16666666
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -8158,6 +8158,7 @@ MonoBehaviour:
   totalWaves: 4
   batsPerWave: 3
   timeBetweenWaves: 2
+  initialSpawnDelay: 15
   minimumBatSpacing: 0.75
   keyPrefab: {fileID: 5178545186552020671, guid: 995451d2182054e41947b6b582f0f1d9, type: 3}
 --- !u!4 &491797277
@@ -29551,7 +29552,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.64, y: 0, z: 0}
-  m_LocalScale: {x: 24.361, y: 24.361, z: 24.361}
+  m_LocalScale: {x: 66.38372, y: 24.361, z: 24.361}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1010513088}
