@@ -65,12 +65,31 @@ public class BatFollow : MonoBehaviour
                         if (!has_Atk)
                         {
                             Debug.Log("Bat touched player!");
-                            Health playerHealth = player_pos.GetComponent<Health>();
-                            if (playerHealth != null)
+
+                            PlayerBlock playerBlock = player_pos.GetComponent<PlayerBlock>();
+
+                            bool isBlock = (playerBlock != null && playerBlock.isBlock);
+
+                            if (isBlock)
                             {
-                                playerHealth.TakeDamage(damage);
-                                has_Atk = true;
+                                Debug.Log("Blocked Bat");
+
+                                //Retreat from block movement 
+                                Vector2 return_Dir = (transform.position - player_pos.position).normalized;
+                                retreat_from_target = (Vector2)transform.position + (return_Dir * 1.6f);
+                                curr_state = State.Retreat;
+
                             }
+                            else
+                            {
+                                Health playerHealth = player_pos.GetComponent<Health>();
+                                if (playerHealth != null)
+                                {
+                                    playerHealth.TakeDamage(damage);
+                                    
+                                }
+                            }
+                            has_Atk = true;
                         }
                     }
                         
@@ -96,6 +115,7 @@ public class BatFollow : MonoBehaviour
                 if (Vector2.Distance(transform.position, retreat_from_target) < 0.1f)
                 {
                     curr_state = State.Chasing;
+                    has_Atk = false;
                 }
                 break;
 

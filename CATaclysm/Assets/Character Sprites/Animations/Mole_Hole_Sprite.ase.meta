@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 820b7114952b3714da2ccb2711054d30
+guid: 602a5a793a7909c49af4abc15f11334e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Mole_Hole_Sprite
+  - name: Frame_0
     originalName: 
     pivot: {x: 0.5, y: -0.11764706}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 44
       height: 17
-    spriteID: 54a11846ba693db44b730a11b6313cab
+    spriteID: 68fe9b8a879768e44a1ba01fd9574dd6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,6 +148,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.11764706}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 29
+      width: 44
+      height: 17
+    spriteID: 655e4e1b808507f4180c4df23a12d427
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 29}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -163,7 +184,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Mole_Hole_Sprite
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +192,16 @@ ScriptedImporter:
         y: 2
         width: 44
         height: 17
-      spriteId: 54a11846ba693db44b730a11b6313cab
+      spriteId: 68fe9b8a879768e44a1ba01fd9574dd6
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 10
+        y: 2
+        width: 44
+        height: 17
+      spriteId: 655e4e1b808507f4180c4df23a12d427
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -182,4 +212,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 64, y: 32}
+  previousTextureSize: {x: 64, y: 64}
