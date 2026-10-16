@@ -94,6 +94,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8599dcce1924d254aaa3061bdbd879e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6011752912201242718}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8599dcce1924d254aaa3061bdbd879e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4133570450631988996}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 8599dcce1924d254aaa3061bdbd879e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5498809589771719732}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 8599dcce1924d254aaa3061bdbd879e9, type: 3}
 --- !u!1 &8222198164434645096 stripped
 GameObject:
@@ -176,7 +182,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.004999995, y: 0.235}
+  m_Offset: {x: -0.0022313595, y: 0.13737671}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.48979592, y: -0.31034482}
@@ -186,7 +192,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.49, y: 0.29}
+  m_Size: {x: 0.31381798, y: 0.094753414}
   m_EdgeRadius: 0
 --- !u!114 &4660599506260210444
 MonoBehaviour:
@@ -229,7 +235,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8222198164434645096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d8727d3520dfb47aa521927e2ed797, type: 3}
   m_Name: 
@@ -239,3 +245,39 @@ MonoBehaviour:
   attack_dis: 0.01
   followThrough_dis: 1.5
   damage: 1
+--- !u!114 &4133570450631988996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222198164434645096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1750ff9b29de649a34aa4d547e74e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoleFastFollow
+  speed: 6
+  followThrough_speed: 3
+  attack_dis: 1.2
+  followThrough_dis: 2.5
+  damage: 1
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 2112
+  detectionDistance: 0.8
+  probeRadius: 0.25
+--- !u!114 &-5498809589771719732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222198164434645096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f88c49d348494499738b7a56f70a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: 0
+  sortingScale: 100

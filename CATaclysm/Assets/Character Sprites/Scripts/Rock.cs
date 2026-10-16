@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Rock : MonoBehaviour
@@ -5,6 +6,9 @@ public class Rock : MonoBehaviour
     [SerializeField] private float speed = 6f;
     [SerializeField] private float lifetime = 3f;
     [SerializeField] private int damage = 1;
+
+    // ADDED: Random spread when deflecting
+    [SerializeField] private float deflectSpread = 10f;
 
     private Vector2 move_Dir;
     private bool isReflected = false;
@@ -14,13 +18,13 @@ public class Rock : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Awake()
@@ -43,9 +47,9 @@ public class Rock : MonoBehaviour
     public void Reflect(Vector2 new_Dir)
     {
         isReflected = true;
-        
 
-        if(rb != null)
+
+        if (rb != null)
         {
             rb.linearVelocity = new_Dir.normalized * (speed * 1f);
         }
@@ -53,22 +57,64 @@ public class Rock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isReflected && collision.CompareTag("Player"))
+        // ADDED: Reflected rocks activate levers
+        if (isReflected)
+        {
+            LeverSwitch lever = collision.GetComponentInParent<LeverSwitch>();
+
+            if (lever != null)
+            {
+                lever.TakeHit();
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        // CHANGED: Recognize the player's child hitbox
+        if (!isReflected &&
+            collision.GetComponentInParent<PlayerBlock>() != null)
         {
 
-            PlayerBlock playerBlock = collision.GetComponent<PlayerBlock>();
+            // CHANGED: Find PlayerBlock on the parent
+            PlayerBlock playerBlock = collision.GetComponentInParent<PlayerBlock>();
+
             if (playerBlock != null && playerBlock.isBlock)
             {
-                GameObject mole = GameObject.FindGameObjectWithTag("Enemy");
-                if (mole != null)
+                // ADDED: Deflect toward the player's facing direction
+                PlayerAnimation playerAni = collision.GetComponentInParent<PlayerAnimation>();
+
+                Vector2 return_Dir = -move_Dir.normalized;
+
+                if (playerAni != null)
                 {
-                    Vector2 return_Dir = (mole.transform.position - transform.position).normalized;
-                    Reflect(return_Dir);
+                    switch (playerAni.lastDir)
+                    {
+                        case "right":
+                            return_Dir = Vector2.right;
+                            break;
+                        case "left":
+                            return_Dir = Vector2.left;
+                            break;
+                        case "up":
+                            return_Dir = Vector2.up;
+                            break;
+                        case "down":
+                            return_Dir = Vector2.down;
+                            break;
+                    }
                 }
+
+                // ADDED: Slight random spread
+                float randomAngle = Random.Range(-deflectSpread, deflectSpread);
+                return_Dir = Quaternion.Euler(0f, 0f, randomAngle) * return_Dir;
+
+                Reflect(return_Dir);
             }
             else
             {
-                Health playerHealth = collision.GetComponent<Health>();
+                // CHANGED: Find Health on the parent
+                Health playerHealth = collision.GetComponentInParent<Health>();
+
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(damage);
