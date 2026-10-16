@@ -5064,9 +5064,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.042682923
     width: 1
-    height: 1
+    height: 0.9146341
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -7186,6 +7186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MC_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 2084238094796155566, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5620960649940413730, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -7207,11 +7211,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
---- !u!4 &427575093 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-  m_PrefabInstance: {fileID: 427575092}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &428583620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12106,6 +12105,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 425357036}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 45e22045121d7604fae38a990b9b6a96, type: 3}
+--- !u!4 &773358599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+  m_PrefabInstance: {fileID: 5436942818849781786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &775067269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6396296154463418522, guid: ffa9303ccf991ea48bb0896ba7025c3d, type: 3}
@@ -25984,7 +25988,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 427575093}
+    TrackingTarget: {fileID: 773358599}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -31792,6 +31796,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MC_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 2084238094796155566, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
       propertyPath: 'hearts.Array.data[0]'
       value: 
@@ -31815,10 +31823,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2084238094796155566, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 326076661}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
 --- !u!1001 &6511087270446018322
 PrefabInstance:
@@ -32225,4 +32230,4 @@ SceneRoots:
   - {fileID: 96209948216448212}
   - {fileID: 427575092}
   - {fileID: 2121489317}
-  - {fileID: 1322355729}
+  - {fileID: 5436942818849781786}
