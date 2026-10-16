@@ -12,6 +12,9 @@ public class BarrelBreakHandler : MonoBehaviour
     public GameObject bandagePrefab;
     public GameObject tntPrefab;
 
+    [Header("Guaranteed Drops")]
+    public bool guaranteedTNTDrop = false;
+
     [Range(0f, 100f)]
     public float bandageChance = 30f;
 
@@ -70,13 +73,21 @@ public class BarrelBreakHandler : MonoBehaviour
 
     private GameObject DropItem()
     {
-        float roll = Random.Range(0f, 100f);
         GameObject itemToDrop = null;
 
-        if (roll < tntChance)
+        if (guaranteedTNTDrop)
+        {
             itemToDrop = tntPrefab;
-        else if (roll < tntChance + bandageChance)
-            itemToDrop = bandagePrefab;
+        }
+        else
+        {
+            float roll = Random.Range(0f, 100f);
+
+            if (roll < tntChance)
+                itemToDrop = tntPrefab;
+            else if (roll < tntChance + bandageChance)
+                itemToDrop = bandagePrefab;
+        }
 
         if (itemToDrop == null)
             return null;

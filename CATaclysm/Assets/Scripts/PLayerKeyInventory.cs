@@ -14,7 +14,6 @@ public class PlayerKeyInventory : MonoBehaviour
 
     private void Awake()
     {
-        // Restore the objective key when entering a new scene.
         hasObjectiveKey = GameProgress.hasObjectiveKey;
     }
 
@@ -25,11 +24,21 @@ public class PlayerKeyInventory : MonoBehaviour
             return;
 
         hasObjectiveKey = true;
-
-        // Remember the key between scenes.
         GameProgress.hasObjectiveKey = true;
 
         Debug.Log("MAIN OBJECTIVE KEY COLLECTED!");
+
+        TBCEnding ending = FindFirstObjectByType<TBCEnding>();
+
+        if (ending != null)
+        {
+            Debug.Log("Starting TBC ending!");
+            ending.StartEnding();
+        }
+        else
+        {
+            Debug.LogWarning("TBC Ending not found in scene!");
+        }
     }
 
     // LEVEL 1 KEY

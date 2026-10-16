@@ -10,59 +10,48 @@ public class TNTExplosion : MonoBehaviour
 
     public void Explode()
     {
-        HashSet<Health> damagedTargets = new HashSet<Health>();
-
-        // Find every Health component in the scene,
-        // including Health on child objects like Barrel_Hitbox.
         Health[] targets = FindObjectsByType<Health>(
             FindObjectsSortMode.None
         );
 
+        HashSet<Health> damagedTargets = new HashSet<Health>();
+
+        Vector2 explosionPosition = transform.position;
+
         foreach (Health health in targets)
         {
-            if (!health.gameObject.activeInHierarchy)
+            if (health == null || !health.gameObject.activeInHierarchy)
                 continue;
 
-            // Check every collider belonging to this Health object.
-            Collider2D[] colliders =
-                health.GetComponentsInChildren<Collider2D>();
+            // Use the target's actual world position.
+            Vector2 targetPosition = health.transform.position;
 
-            foreach (Collider2D col in colliders)
+            float distance = Vector2.Distance(
+                explosionPosition,
+                targetPosition
+            );
+
+            if (distance <= explosionRadius)
             {
-                if (!col.enabled)
-                    continue;
-
-                Vector2 closestPoint = col.ClosestPoint(
-                    transform.position
-                );
-
-                float distance = Vector2.Distance(
-                    transform.position,
-                    closestPoint
-                );
-
-                if (distance <= explosionRadius)
+                if (damagedTargets.Add(health))
                 {
-                    if (damagedTargets.Add(health))
-                    {
-                        Debug.Log(
-                            "TNT damaging: " + health.gameObject.name
-                        );
+                    Debug.Log(
+                        "TNT hit: " + health.gameObject.name +
+                        " | Distance: " + distance
+                    );
 
-                        health.TakeDamage(explosionDamage);
-                    }
-
-                    break;
+                    health.TakeDamage(explosionDamage);
                 }
             }
         }
 
-        Debug.Log("TNT exploded!");
+        Debug.Log("TNT explosion damage applied!");
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
+
         Gizmos.DrawWireSphere(
             transform.position,
             explosionRadius
