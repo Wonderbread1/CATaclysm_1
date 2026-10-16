@@ -9,25 +9,24 @@ public class Health : MonoBehaviour
 
     public List<Hearts> hearts;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool isDead = false;
+
     void Start()
     {
         curr_Health = maxHealth;
         UpdateHeartsUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(float damage)
     {
+        if (isDead)
+            return;
+
         curr_Health -= damage;
         curr_Health = Mathf.Clamp(curr_Health, 0, maxHealth);
 
-        Debug.Log(gameObject.name + " took " + damage + " damage. Current health: " + curr_Health);
+        Debug.Log(gameObject.name + " took " + damage +
+                  " damage. Current health: " + curr_Health);
 
         UpdateHeartsUI();
 
@@ -37,20 +36,24 @@ public class Health : MonoBehaviour
         }
     }
 
-    // ADDED: Heal health and update the hearts UI
     public void Heal(float amount)
     {
+        if (isDead)
+            return;
+
         curr_Health += amount;
         curr_Health = Mathf.Clamp(curr_Health, 0, maxHealth);
 
-        Debug.Log(gameObject.name + " healed " + amount + " HP. Current health: " + curr_Health);
+        Debug.Log(gameObject.name + " healed " + amount +
+                  " HP. Current health: " + curr_Health);
 
         UpdateHeartsUI();
     }
 
     void UpdateHeartsUI()
     {
-        if (hearts == null || hearts.Count == 0) return;
+        if (hearts == null || hearts.Count == 0)
+            return;
 
         for (int i = 0; i < hearts.Count; i++)
         {
@@ -73,7 +76,20 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " has died. ");
-        Destroy(gameObject);
+        Debug.Log(gameObject.name + " has died.");
+
+        PlayerDeathRestart restart =
+            GetComponent<PlayerDeathRestart>();
+
+        if (restart != null)
+        {
+            restart.RestartLevel();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        isDead = true;
     }
 }
