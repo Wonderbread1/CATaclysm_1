@@ -61,6 +61,9 @@ TagManager:
   - name: UI
     uniqueID: 57852641
     locked: 0
+  - name: UI Selector
+    uniqueID: 4062938719
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1

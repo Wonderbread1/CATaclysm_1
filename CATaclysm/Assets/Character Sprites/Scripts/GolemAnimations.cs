@@ -8,7 +8,7 @@ public class GolemAnimations : MonoBehaviour
     private float timer;
     private Transform player_pos;
     private Animator animate;
-
+    private float damage = 1f;
     private bool isOut = false;
 
     [SerializeField] private float atk_rad = 0.1f;
@@ -109,7 +109,7 @@ public class GolemAnimations : MonoBehaviour
             Health playerHealth = player_pos.GetComponent<Health>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(2f);
+                playerHealth.TakeDamage(damage);
             }
         }
     }
