@@ -1,15 +1,19 @@
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttackAnimations : MonoBehaviour
 {
     private Animator animate;
     private PlayerBlock playerBlock;
     private PlayerAction playerAction;
-    private PlayerAttackAnimations playerAtk;
 
-    
+    [Header("Input System")]
+    [SerializeField] private InputActionAsset controls;
 
-    //Get animation for attack
+    private InputAction attackAction;
+
+    [Header("Attack Animations")]
     public string atk_right = "MC_Attack_Right_Clip";
     public string atk_left = "MC_Attack_Left_Clip";
     public string atk_up = "MC_Attack_Up_Clip";
@@ -19,85 +23,94 @@ public class PlayerAttackAnimations : MonoBehaviour
 
     public bool isAtk = false;
 
-    
-
-  
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         animate = GetComponent<Animator>();
         playerBlock = GetComponent<PlayerBlock>();
         playerAction = GetComponent<PlayerAction>();
-        playerAtk = GetComponent<PlayerAttackAnimations>();
 
-        
-       
+        SetControlMap("Normal_Keyboard");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
+    {
+        if (attackAction != null)
+            attackAction.Disable();
+    }
+
+    public void SetControlMap(string mapName)
+    {
+        if (controls == null)
+        {
+            Debug.LogError("Animation Controls asset is not assigned!");
+            return;
+        }
+
+        if (attackAction != null)
+            attackAction.Disable();
+
+        InputActionMap map = controls.FindActionMap(mapName);
+
+        if (map == null)
+        {
+            Debug.LogError("Animation Action Map not found: " + mapName);
+            return;
+        }
+
+        attackAction = map.FindAction("Attack");
+
+        if (attackAction == null)
+        {
+            Debug.LogError("Attack action not found in " + mapName);
+            return;
+        }
+
+        attackAction.Enable();
+    }
+
+    private void Update()
     {
         if (playerBlock != null && playerBlock.isBlock)
-        {
             return;
-        }
+
         if (playerAction != null && playerAction.isAction)
-        {
             return;
-        }
-        if (playerAtk != null && playerAtk.isAtk)
-        {
+
+        if (isAtk || attackAction == null)
             return;
-        }
 
+        if (!attackAction.WasPressedThisFrame())
+            return;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-           PerformAttack(atk_right);
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            PerformAttack(atk_up);
-           
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            PerformAttack(atk_down);
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            PerformAttack(atk_left);
-            
-        }
+        Vector2 input = attackAction.ReadValue<Vector2>();
 
+        if (Mathf.Abs(input.y) >= Mathf.Abs(input.x))
+        {
+            if (input.y > 0f)
+                PerformAttack(atk_up);
+            else if (input.y < 0f)
+                PerformAttack(atk_down);
+        }
+        else
+        {
+            if (input.x > 0f)
+                PerformAttack(atk_right);
+            else if (input.x < 0f)
+                PerformAttack(atk_left);
+        }
     }
 
-    void PerformAttack(string animationName)
+    private void PerformAttack(string animationName)
     {
         isAtk = true;
-
-        
-       
 
         animate.Play(animationName, 0, 0f);
 
         Invoke(nameof(ResetAtk), atkLength);
-
-        
-
     }
 
     private void ResetAtk()
     {
         isAtk = false;
-
-       
     }
-    
-
-    
 }

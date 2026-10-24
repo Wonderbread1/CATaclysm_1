@@ -1,4 +1,6 @@
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections;
 
 public class Player_Attack : MonoBehaviour
@@ -7,55 +9,113 @@ public class Player_Attack : MonoBehaviour
     public float attack_dur = 0.2f;
     public float hitbox_offset = 1f;
 
+    [Header("Input System")]
+    [SerializeField] private InputActionAsset controls;
+
+    private InputAction attackAction;
     private bool is_Atk = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        SetControlMap("Normal_Keyboard");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        if (is_Atk) return;
+        if (attackAction != null)
+            attackAction.Disable();
+    }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+    public void SetControlMap(string mapName)
+    {
+        if (controls == null)
         {
-            StartCoroutine(PerformAttack(new Vector3(0f, 1f, 0f)));
+            Debug.LogError("Attack Controls asset is not assigned!");
+            return;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+
+        if (attackAction != null)
+            attackAction.Disable();
+
+        InputActionMap map = controls.FindActionMap(mapName);
+
+        if (map == null)
         {
-            StartCoroutine(PerformAttack(new Vector3(0f, -2f, 0f)));
+            Debug.LogError("Attack Action Map not found: " + mapName);
+            return;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        attackAction = map.FindAction("Attack");
+
+        if (attackAction == null)
         {
-            StartCoroutine(PerformAttack(new Vector3(-1f, 0f, 0f)));
+            Debug.LogError("Attack action not found in " + mapName);
+            return;
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+
+        attackAction.Enable();
+    }
+
+    private void Update()
+    {
+        if (is_Atk || attackAction == null)
+            return;
+
+        // Only attack when a direction is first pressed.
+        if (!attackAction.WasPressedThisFrame())
+            return;
+
+        Vector2 input = attackAction.ReadValue<Vector2>();
+
+        if (Mathf.Abs(input.y) >= Mathf.Abs(input.x))
         {
-            StartCoroutine(PerformAttack(new Vector3(1f, 0f, 0f)));
+            if (input.y > 0f)
+            {
+                StartCoroutine(
+                    PerformAttack(new Vector3(0f, 1f, 0f))
+                );
+            }
+            else if (input.y < 0f)
+            {
+                StartCoroutine(
+                    PerformAttack(new Vector3(0f, -2f, 0f))
+                );
+            }
+        }
+        else
+        {
+            if (input.x < 0f)
+            {
+                StartCoroutine(
+                    PerformAttack(new Vector3(-1f, 0f, 0f))
+                );
+            }
+            else if (input.x > 0f)
+            {
+                StartCoroutine(
+                    PerformAttack(new Vector3(1f, 0f, 0f))
+                );
+            }
         }
     }
 
-    IEnumerator PerformAttack(Vector3 attack_Dir)
+    private IEnumerator PerformAttack(Vector3 attack_Dir)
     {
         is_Atk = true;
 
-        if(hitbox != null)
+        if (hitbox != null)
         {
-            hitbox.transform.position = transform.position + (attack_Dir * hitbox_offset);
-            hitbox.transform.rotation = Quaternion.identity;
+            hitbox.transform.position =
+                transform.position + (attack_Dir * hitbox_offset);
 
+            hitbox.transform.rotation = Quaternion.identity;
             hitbox.SetActive(true);
         }
 
         yield return new WaitForSeconds(attack_dur);
 
         if (hitbox != null)
-        {
             hitbox.SetActive(false);
-        }
 
         is_Atk = false;
     }

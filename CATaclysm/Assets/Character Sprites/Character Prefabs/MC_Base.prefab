@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Movement
   speed: 1.8
+  controls: {fileID: -944628639613478452, guid: 4dcd8fd81935a864b8aea4d2519db960, type: 3}
 --- !u!114 &8875781446256986175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,10 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a42e151226733c41b6ac44851100618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
-  death_right: MC_Death_Right_CLip
-  death_left: MC_Death_Left_CLip
-  death_left_up: MC_Death_Left_Up_CLip
-  death_right_down: MC_Death_Right_Down_CLip
+  maxHealth: 6
+  curr_Health: 0
+  hearts: []
 --- !u!61 &8259819606272586908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ BoxCollider2D:
   m_Offset: {x: -0.13731371, y: 0.10492098}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 1.3000001, y: -0.0925926}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.2, y: 0.54}
     newSize: {x: 0.2, y: 0.54}
     adaptiveTilingThreshold: 0.5

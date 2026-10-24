@@ -1,4 +1,6 @@
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -7,71 +9,110 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerBlock playerBlock;
     private PlayerAction playerAction;
 
-    //for walk cycle animations
+    private Player_Movement playerMovement;
+
+    // Walk cycle animations
     public string walk_left = "MC_Walk_Left_Clip";
     public string walk_right = "MC_Walk_Right_Clip";
     public string walk_up = "MC_Walk_Up_Clip";
     public string walk_down = "MC_Walk_Down_Clip";
 
-    //for idle stances when not moving
+    // Idle stance animations
     public string idle_left = "MC_Idle_Left_Clip";
     public string idle_right = "MC_Idle_Right_Clip";
     public string idle_up = "MC_Idle_Up_Clip";
     public string idle_down = "MC_Idle_Down_Clip";
 
-    //track last direction
+    // Track last direction
     public string lastDir;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Input System")]
+    [SerializeField] private InputActionAsset controls;
+
+    private InputAction moveAction;
+
+    private void Start()
     {
         animate = GetComponent<Animator>();
         playerAtk = GetComponent<PlayerAttackAnimations>();
         playerBlock = GetComponent<PlayerBlock>();
         playerAction = GetComponent<PlayerAction>();
+        playerMovement = GetComponent<Player_Movement>();
+
+        SetControlMap("Normal_Keyboard");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        //stops movement animations
-        if (playerAtk != null && playerAtk.isAtk)
+        if (moveAction != null)
+            moveAction.Disable();
+    }
+
+    public void SetControlMap(string mapName)
+    {
+        if (controls == null)
         {
-            return;
-        }
-        if (playerBlock != null && playerBlock.isBlock)
-        {
-            return;
-        }
-        if (playerAction != null && playerAction.isAction)
-        {
+            Debug.LogError("Animation Controls asset is not assigned!");
             return;
         }
 
-        //animation plays when that key is pressed down
-        if (Input.GetKey(KeyCode.D))
+        InputActionMap map = controls.FindActionMap(mapName);
+
+        if (map == null)
+        {
+            Debug.LogError("Animation Action Map not found: " + mapName);
+            return;
+        }
+
+        moveAction = map.FindAction("Move");
+
+        if (moveAction == null)
+        {
+            Debug.LogError("Move action not found in " + mapName);
+            return;
+        }
+
+        moveAction.Enable();
+    }
+
+    private void Update()
+    {
+        if (playerAtk != null && playerAtk.isAtk)
+            return;
+
+        if (playerBlock != null && playerBlock.isBlock)
+            return;
+
+        if (playerAction != null && playerAction.isAction)
+            return;
+
+        if (moveAction == null)
+            return;
+
+        Vector2 input = moveAction.ReadValue<Vector2>();
+
+        if (input.x > 0.1f)
         {
             animate.Play(walk_right);
             lastDir = "right";
         }
-        else if (Input.GetKey(KeyCode.W))
+        else if (input.y > 0.1f)
         {
             animate.Play(walk_up);
             lastDir = "up";
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (input.y < -0.1f)
         {
             animate.Play(walk_down);
             lastDir = "down";
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (input.x < -0.1f)
         {
             animate.Play(walk_left);
             lastDir = "left";
         }
         else
         {
-            //keep last direction so character stays facing that way
             switch (lastDir)
             {
                 case "right":
