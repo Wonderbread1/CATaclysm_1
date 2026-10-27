@@ -12,9 +12,12 @@ public class PlayerKeyInventory : MonoBehaviour
     [Header("Main Objective Key")]
     public bool hasObjectiveKey = false;
 
+    private PlayerCurseController curseController;
+
     private void Awake()
     {
         hasObjectiveKey = GameProgress.hasObjectiveKey;
+        curseController = GetComponent<PlayerCurseController>();
     }
 
     // MAIN OBJECTIVE KEY
@@ -28,16 +31,14 @@ public class PlayerKeyInventory : MonoBehaviour
 
         Debug.Log("MAIN OBJECTIVE KEY COLLECTED!");
 
-        TBCEnding ending = FindFirstObjectByType<TBCEnding>();
-
-        if (ending != null)
+        if (curseController != null)
         {
-            Debug.Log("Starting TBC ending!");
-            ending.StartEnding();
+            curseController.SetInvertedCurse();
+            Debug.Log("CURSE ACTIVATED! Controls inverted!");
         }
         else
         {
-            Debug.LogWarning("TBC Ending not found in scene!");
+            Debug.LogWarning("PlayerCurseController not found on player!");
         }
     }
 

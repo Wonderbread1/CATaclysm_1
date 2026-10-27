@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3 Key Door Animation
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 7878350319992209165, guid: fdc1c798c5c4b3e4381c05c54dc772e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9345627
