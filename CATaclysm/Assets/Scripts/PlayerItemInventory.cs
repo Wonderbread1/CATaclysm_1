@@ -150,7 +150,10 @@ public class PlayerItemInventory : MonoBehaviour
     {
         if (inventorySelector == null || inventoryManager == null) return;
 
+        int currentIndex = inventorySelector.selectedIndex;
         string selectedItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+
+        if (selectedItem == "Empty") return;
 
         Vector3 drop_pos = transform.position + transform.forward * 1.5f;
         if (dropPoint != null)
@@ -158,11 +161,11 @@ public class PlayerItemInventory : MonoBehaviour
             drop_pos = dropPoint.position;
         }
 
-        if (selectedItem == "Dynamite" && tntCount > 0)
+        if (selectedItem == "Dynamite" && dynamitePrefab != null)
         {
-            tntCount--;
-            if (dynamitePrefab != null)
-            {
+            
+           
+            
                 GameObject droppedItem = Instantiate(dynamitePrefab, drop_pos, Quaternion.identity);
 
                 ItemPopOut popOut = droppedItem.GetComponent<ItemPopOut>();
@@ -170,20 +173,15 @@ public class PlayerItemInventory : MonoBehaviour
                 {
                     popOut.enabled = false;
                 }
-            }
 
-            if (tntCount <= 0)
-            {
-                inventoryManager.RemoveItem("Dynamite");
-            }
-
-            Debug.Log("Dropped dynamite");
+            tntCount = Mathf.Max(0, tntCount - 1);
+         
         }
-        else if (selectedItem == "Bandage" && bandageCount > 0)
+        else if (selectedItem == "Bandage" && bandagePrefab != null)
         {
-            bandageCount--;
-            if (bandagePrefab != null)
-            {
+            
+           
+            
                 GameObject droppedItem = Instantiate(bandagePrefab, drop_pos, Quaternion.identity);
 
                 ItemPopOut popOut = droppedItem.GetComponent<ItemPopOut>();
@@ -191,19 +189,12 @@ public class PlayerItemInventory : MonoBehaviour
                 {
                     popOut.enabled = false;
                 }
-            }
+            bandageCount = Mathf.Max(0, bandageCount - 1);
 
-            if(bandageCount <= 0)
-            {
-                inventoryManager.RemoveItem("Bandage");
-            }
-
-            Debug.Log("Dropped bandage");
+            
         }
-        else
-        {
-            Debug.Log("Nothing droppable");
-        }
+        
+        inventoryManager.DecreaseSelectedItem(currentIndex);
     }
 
 

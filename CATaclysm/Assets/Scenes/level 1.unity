@@ -32616,7 +32616,7 @@ PrefabInstance:
     - target: {fileID: 6987012912507909637, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
       propertyPath: dynamitePrefab
       value: 
-      objectReference: {fileID: 4965255981670639244, guid: 3ba6dd35b6fa97344b13858da1654dde, type: 3}
+      objectReference: {fileID: 4965255981670639244, guid: b739669e73b2bfd45a0e8e5720661c8c, type: 3}
     - target: {fileID: 6987012912507909637, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
       propertyPath: inventoryManager
       value: 

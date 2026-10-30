@@ -157,6 +157,52 @@ public class InventoryManager : MonoBehaviour
         UpdateInventoryUI();
     }
 
+    public void DecreaseSelectedItem(int index)
+    {
+        if (index == 1)
+        {
+            if (itemBox2 == "Bandage")
+            {
+                bandageCount2--;
+                if (bandageCount2 <= 0) { itemBox2 = "Empty"; bandageCount2 = 0; }
+            }
+            else if (itemBox2 == "Dynamite")
+            {
+                itemBox2 = "Empty";
+            }
+
+        }
+        else if (index == 2)
+        {
+            if (itemBox3 == "Bandage")
+            {
+                bandageCount3--;
+                if (bandageCount3 <= 0) { itemBox3 = "Empty"; bandageCount3 = 0; }
+            }
+            else if (itemBox3 == "Dynamite")
+            {
+                itemBox3 = "Empty";
+            }
+        }
+
+        UpdateInventoryUI();
+    }
+
+    public void ClearSlot (int index)
+    {
+        if (index == 1)
+        {
+            itemBox2 = "Empty";
+            bandageCount2 = 0;
+        }
+        else if (index == 2)
+        {
+            itemBox3 = "Empty";
+            bandageCount3 = 0;
+        }
+
+        UpdateInventoryUI();
+    }
     public bool UseTNT()
     {
         if (itemBox3 == "Dynamite")
