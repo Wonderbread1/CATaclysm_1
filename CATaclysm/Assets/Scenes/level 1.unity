@@ -5260,6 +5260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySelector
   boxTransform: []
+  selectedIndex: 0
 --- !u!1 &334102122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 292037ce964798248aa5b911f8558e1a, type: 3}
@@ -30936,6 +30937,7 @@ MonoBehaviour:
   - {fileID: 1846735021}
   - {fileID: 654295520}
   - {fileID: 499723416}
+  selectedIndex: 0
 --- !u!1 &2091953256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3868073848825357155, guid: 6b0eb315aaeee084eb6e1ba1d5809cdc, type: 3}
@@ -32599,10 +32601,38 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6273397174669610245, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1282351886}
+    - target: {fileID: 6273397174669610245, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: inventorySelector
+      value: 
+      objectReference: {fileID: 2091727150}
+    - target: {fileID: 6987012912507909637, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: bandagePrefab
+      value: 
+      objectReference: {fileID: 578318313241991580, guid: b5cf4cafb40eb0745b096525812095a2, type: 3}
+    - target: {fileID: 6987012912507909637, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: dynamitePrefab
+      value: 
+      objectReference: {fileID: 4965255981670639244, guid: 3ba6dd35b6fa97344b13858da1654dde, type: 3}
     - target: {fileID: 6987012912507909637, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1282351886}
+    - target: {fileID: 6987012912507909637, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: inventorySelector
+      value: 
+      objectReference: {fileID: 2091727150}
+    - target: {fileID: 7886915985706904057, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1282351886}
+    - target: {fileID: 7886915985706904057, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: inventorySelector
+      value: 
+      objectReference: {fileID: 2091727150}
     - target: {fileID: 8830922610407941675, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
       propertyPath: inventoryManager
       value: 

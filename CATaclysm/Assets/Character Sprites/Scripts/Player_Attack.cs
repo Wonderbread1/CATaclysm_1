@@ -15,6 +15,10 @@ public class Player_Attack : MonoBehaviour
     private InputAction attackAction;
     private bool is_Atk = false;
 
+    //Inventory Check
+    public InventoryManager inventoryManager;
+    public InventorySelector inventorySelector;
+
     private void Start()
     {
         SetControlMap("Normal_Keyboard");
@@ -64,6 +68,15 @@ public class Player_Attack : MonoBehaviour
         // Only attack when a direction is first pressed.
         if (!attackAction.WasPressedThisFrame())
             return;
+
+        if (inventorySelector != null && inventoryManager != null)
+        {
+            string currentItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+            if (currentItem != "Sword")
+            {
+                return;
+            }
+        }
 
         Vector2 input = attackAction.ReadValue<Vector2>();
 

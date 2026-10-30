@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public Sprite dynamite;
 
     //Inventory State
+    private string itemBox1 = "Sword";
     private bool hasSword = true;
     private string itemBox2 = "Empty";
     private int bandageCount2 = 0;
@@ -41,6 +42,15 @@ public class InventoryManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public string GetSelectedItemType(int index)
+    {
+        if (index == 0) return itemBox1;
+        if (index == 1) return itemBox2;
+        if (index == 2) return itemBox3;
+
+        return "Empty";
     }
 
     public void PickUpItem(string itemType)

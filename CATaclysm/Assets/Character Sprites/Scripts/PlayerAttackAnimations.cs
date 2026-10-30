@@ -23,6 +23,10 @@ public class PlayerAttackAnimations : MonoBehaviour
 
     public bool isAtk = false;
 
+    //Inventory Check
+    public InventorySelector inventorySelector;
+    public InventoryManager inventoryManager;
+
     private void Start()
     {
         animate = GetComponent<Animator>();
@@ -79,8 +83,26 @@ public class PlayerAttackAnimations : MonoBehaviour
         if (isAtk || attackAction == null)
             return;
 
+        if (inventorySelector != null && inventoryManager != null)
+        {
+            string currentItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+            if (currentItem != "Sword")
+            {
+                return;
+            }
+        }
+
         if (!attackAction.WasPressedThisFrame())
             return;
+
+        if (inventorySelector != null && inventoryManager != null)
+        {
+            string currentItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+            if (currentItem != "Sword")
+            {
+                return;
+            }
+        }
 
         Vector2 input = attackAction.ReadValue<Vector2>();
 

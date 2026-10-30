@@ -17,6 +17,13 @@ public class PlayerItemInventory : MonoBehaviour
     private Health playerHealth;
 
     public InventoryManager inventoryManager;
+    public InventorySelector inventorySelector;
+
+    //Drop Items
+    public GameObject dynamitePrefab;
+    public GameObject bandagePrefab;
+    public Transform dropPoint;
+    
 
     void Awake()
     {
@@ -30,6 +37,11 @@ public class PlayerItemInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             UseBandage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            DropCurrentSelectedItem();
         }
     }
 
@@ -54,25 +66,29 @@ public class PlayerItemInventory : MonoBehaviour
 
     public bool CollectBandage()
     {
-        if (inventoryManager != null && !inventoryManager.HasAvailableSlot())
+       if (inventoryManager != null)
         {
-            return false;
+            inventoryManager.PickUpItem("Bandage");
+            bandageCount++;
+            Debug.Log("Bandage collected! Total: " + bandageCount);
+            return true;
         }
 
-        if (bandageCount >= maxBandages)
-        {
-            Debug.Log("Bandage inventory full!");
-            return false;
-        }
-
-        bandageCount++;
-        Debug.Log("Bandage collected! Total: " + bandageCount);
-        inventoryManager.PickUpItem("Bandage");
-        return true;
+        return false;
     }
 
     public bool UseTNT()
     {
+        if (inventorySelector != null)
+        {
+            string currentItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+            if (currentItem != "Dynamite")
+            {
+                Debug.Log("Cannot use dynamite");
+                return false;
+            } 
+        }
+
         if (tntCount <= 0)
             return false;
 
@@ -88,6 +104,16 @@ public class PlayerItemInventory : MonoBehaviour
 
     public bool UseBandage()
     {
+        if (inventorySelector != null)
+        {
+            string currentItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+            if (currentItem != "Bandage")
+            {
+                Debug.Log("Cannot use bandage");
+                return false;
+            }
+        }
+
         if (bandageCount <= 0)
         {
             Debug.Log("No bandages available!");
@@ -119,4 +145,67 @@ public class PlayerItemInventory : MonoBehaviour
 
         return true;
     }
+
+    void DropCurrentSelectedItem()
+    {
+        if (inventorySelector == null || inventoryManager == null) return;
+
+        string selectedItem = inventoryManager.GetSelectedItemType(inventorySelector.selectedIndex);
+
+        Vector3 drop_pos = transform.position + transform.forward * 1.5f;
+        if (dropPoint != null)
+        {
+            drop_pos = dropPoint.position;
+        }
+
+        if (selectedItem == "Dynamite" && tntCount > 0)
+        {
+            tntCount--;
+            if (dynamitePrefab != null)
+            {
+                GameObject droppedItem = Instantiate(dynamitePrefab, drop_pos, Quaternion.identity);
+
+                ItemPopOut popOut = droppedItem.GetComponent<ItemPopOut>();
+                if (popOut != null)
+                {
+                    popOut.enabled = false;
+                }
+            }
+
+            if (tntCount <= 0)
+            {
+                inventoryManager.RemoveItem("Dynamite");
+            }
+
+            Debug.Log("Dropped dynamite");
+        }
+        else if (selectedItem == "Bandage" && bandageCount > 0)
+        {
+            bandageCount--;
+            if (bandagePrefab != null)
+            {
+                GameObject droppedItem = Instantiate(bandagePrefab, drop_pos, Quaternion.identity);
+
+                ItemPopOut popOut = droppedItem.GetComponent<ItemPopOut>();
+                if (popOut != null)
+                {
+                    popOut.enabled = false;
+                }
+            }
+
+            if(bandageCount <= 0)
+            {
+                inventoryManager.RemoveItem("Bandage");
+            }
+
+            Debug.Log("Dropped bandage");
+        }
+        else
+        {
+            Debug.Log("Nothing droppable");
+        }
+    }
+
+
 }
+
