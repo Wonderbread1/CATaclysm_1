@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GolemAnimations : MonoBehaviour
 {
-    [SerializeField] private float trigger_rad = 3.5f;
+    //[SerializeField] private float trigger_rad = 3.5f;
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private float delay = 1f;
 

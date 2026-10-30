@@ -24,12 +24,16 @@ public class PickupPromptDetector : MonoBehaviour
     // ADDED: Nearby consumable pickup
     private GameObject nearbyConsumable;
 
+    public InventoryManager inventoryManager;
+
     private void Start()
     {
         keyInventory = GetComponent<PlayerKeyInventory>();
 
         // ADDED
         itemInventory = GetComponent<PlayerItemInventory>();
+
+        inventoryManager = GetComponent<InventoryManager>();
     }
 
     private void Update()
@@ -234,25 +238,26 @@ public class PickupPromptDetector : MonoBehaviour
 
         // Wait for E to be pressed.
         if (!Input.GetKeyDown(KeyCode.E))
-            return;
-
-        // Collect Level 1 or Level 3 keys.
-        if (nearbyKey != null && keyInventory != null)
         {
-            if (nearbyKey.CompareTag("Level1Key"))
+
+
+            // Collect Level 1 or Level 3 keys.
+            if (nearbyKey != null && keyInventory != null)
             {
-                keyInventory.CollectLevel1Key();
-                Destroy(nearbyKey);
-            }
-            else if (nearbyKey.CompareTag("Level3Key"))
-            {
-                if (keyInventory.CollectLevel3Key())
+                if (nearbyKey.CompareTag("Level1Key"))
                 {
+                    keyInventory.CollectLevel1Key();
                     Destroy(nearbyKey);
+                }
+                else if (nearbyKey.CompareTag("Level3Key"))
+                {
+                    if (keyInventory.CollectLevel3Key())
+                    {
+                        Destroy(nearbyKey);
+                    }
                 }
             }
         }
-
         // Collect the main objective key.
         else if (nearbyObjectiveKey != null &&
                  keyInventory != null)
@@ -282,7 +287,7 @@ public class PickupPromptDetector : MonoBehaviour
             // Only remove the item if inventory has room.
             if (collected)
             {
-                Destroy(nearbyConsumable);
+                Destroy(nearbyConsumable.gameObject);
             }
         }
 

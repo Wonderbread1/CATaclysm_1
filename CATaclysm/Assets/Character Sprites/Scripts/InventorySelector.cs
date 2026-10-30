@@ -2,98 +2,34 @@ using UnityEngine;
 
 public class InventorySelector : MonoBehaviour
 {
-    [SerializeField] private Transform[] inventoryBoxes;
-    [SerializeField] private SpriteRenderer[] itemIcons;
+    public RectTransform[] boxTransform;
+    private RectTransform selectorRect;
 
-    [SerializeField] Sprite sword;
-
-    [SerializeField] private KeyCode switchKey = KeyCode.F;
-
-    private int currentIndex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    void Start()
     {
-        UpdateSelectorPosition();
+        selectorRect = GetComponent<RectTransform>();
 
-       for (int i = 0; i < itemIcons.Length; i++)
+        if (boxTransform.Length > 0 && boxTransform[0] != null)
         {
-            if (i == 0)
-            {
-                if(sword != null)
-                {
-                    itemIcons[i].sprite = sword;
-                    itemIcons[i].enabled = true;
-                }
-            }
-            else
-            {
-                itemIcons[i].sprite = null;
-                itemIcons[i].enabled = false;
-            }
+            selectorRect.anchoredPosition = boxTransform[0].anchoredPosition;
         }
-        
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        //Cycle options with F
-        if (Input.GetKeyDown(switchKey))
+        if(Input.GetKeyDown(KeyCode.Alpha1) && boxTransform.Length > 0 && boxTransform[0] != null)
         {
-            CycleSelection();
+            selectorRect.anchoredPosition = boxTransform[0].anchoredPosition;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && boxTransform.Length > 1 && boxTransform[1] != null)
+        {
+            selectorRect.anchoredPosition = boxTransform[1].anchoredPosition;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && boxTransform.Length > 2 && boxTransform[2] != null)
+        {
+            selectorRect.anchoredPosition = boxTransform[2].anchoredPosition;
         }
     }
-
-
-    private void CycleSelection()
-    {
-        if (inventoryBoxes == null || inventoryBoxes.Length == 0) return;
-
-        currentIndex = (currentIndex + 1) % inventoryBoxes.Length;
-
-        UpdateSelectorPosition();
-    }
-
-    private void UpdateSelectorPosition()
-    {
-        if (inventoryBoxes == null || inventoryBoxes.Length == 0) return;
-
-        transform.position = inventoryBoxes[currentIndex].position;
-    }
-
-    public void AddItemToCurrentSlot(Sprite newItemSprite)
-    {
-        if(currentIndex >= 0 && currentIndex < itemIcons.Length)
-        {
-            itemIcons[currentIndex].sprite = newItemSprite;
-            itemIcons[currentIndex].enabled = true;
-        }
-    }
-
-    public void ClearCurrentSlot()
-    {
-        if(currentIndex >= 0 && currentIndex < itemIcons.Length)
-        {
-            itemIcons[currentIndex].sprite = null;
-            itemIcons[currentIndex].enabled = false;
-        }
-    }
-
-    private void ClearAllIcons()
-    {
-        foreach (var icon in itemIcons)
-        {
-            if (icon != null)
-            {
-                icon.sprite = null;
-                icon.enabled = false;
-            }
-        }
-    }
-
-    public int GetSelectedIndex()
-    {
-        return currentIndex;
-    }
-
 }

@@ -16,9 +16,13 @@ public class PlayerItemInventory : MonoBehaviour
 
     private Health playerHealth;
 
+    public InventoryManager inventoryManager;
+
     void Awake()
     {
         playerHealth = GetComponent<Health>();
+
+        
     }
 
     void Update()
@@ -31,6 +35,11 @@ public class PlayerItemInventory : MonoBehaviour
 
     public bool CollectTNT()
     {
+        if (inventoryManager != null && !inventoryManager.HasAvailableSlot())
+        {
+            return false;
+        }
+
         if (tntCount >= maxTNT)
         {
             Debug.Log("TNT inventory full!");
@@ -39,11 +48,17 @@ public class PlayerItemInventory : MonoBehaviour
 
         tntCount++;
         Debug.Log("TNT collected! Total: " + tntCount);
+        inventoryManager.PickUpItem("Dynamite");
         return true;
     }
 
     public bool CollectBandage()
     {
+        if (inventoryManager != null && !inventoryManager.HasAvailableSlot())
+        {
+            return false;
+        }
+
         if (bandageCount >= maxBandages)
         {
             Debug.Log("Bandage inventory full!");
@@ -52,6 +67,7 @@ public class PlayerItemInventory : MonoBehaviour
 
         bandageCount++;
         Debug.Log("Bandage collected! Total: " + bandageCount);
+        inventoryManager.PickUpItem("Bandage");
         return true;
     }
 
@@ -61,6 +77,11 @@ public class PlayerItemInventory : MonoBehaviour
             return false;
 
         tntCount--;
+
+        if (inventoryManager != null)
+        {
+            inventoryManager.UseTNT();
+        }
 
         return true;
     }
@@ -88,6 +109,11 @@ public class PlayerItemInventory : MonoBehaviour
 
         playerHealth.Heal(bandageHealAmount);
         bandageCount--;
+
+        if (bandageCount <= 0)
+        {
+            inventoryManager.RemoveItem("Bandage");
+        }
 
         Debug.Log("Bandage used! Remaining: " + bandageCount);
 
