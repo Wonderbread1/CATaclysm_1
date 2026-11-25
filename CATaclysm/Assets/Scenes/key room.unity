@@ -1252,9 +1252,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.054629628
+    width: 1.0744792
+    height: 0.16666666
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.5
-  m_PointLightOuterRadius: 1.5
+  m_PointLightOuterRadius: 0.75
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -5367,7 +5367,7 @@ GameObject:
   - component: {fileID: 1450493706}
   - component: {fileID: 1450493705}
   m_Layer: 0
-  m_Name: Dungeon_Ambient_Light
+  m_Name: Level Lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7388,7 +7388,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 72.80898
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1
+  m_PointLightInnerRadius: 0.75
   m_PointLightOuterRadius: 1.5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0

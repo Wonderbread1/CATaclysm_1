@@ -672,6 +672,90 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 571317971638923162, guid: 5744df48ddfa3804aa299ec2d24b0343, type: 3}
   m_PrefabInstance: {fileID: 2057729021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &26364626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26364627}
+  - component: {fileID: 26364628}
+  m_Layer: 0
+  m_Name: Player Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26364627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26364626}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.022, y: -0.057, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1579103703}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &26364628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26364626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 3
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.48
+  m_Color: {r: 0.9622642, g: 0.89968795, b: 0.66723037, a: 1}
+  m_Intensity: 0.8
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 000000002bd5a2d04d91af50e1c272035f862bf213dbffa4
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 1
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.464
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 0.75
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &26937491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1894,9 +1978,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.055555556
-    width: 0.33333334
-    height: 0.3333333
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -2052,6 +2136,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (27)
@@ -3324,6 +3412,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (16)
@@ -3913,6 +4005,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (19)
@@ -3994,6 +4090,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (12)
@@ -5850,6 +5950,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (5)
@@ -5932,6 +6036,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (14)
@@ -6539,6 +6647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6861,6 +6973,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (22)
@@ -7465,6 +7581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7495,6 +7615,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (4)
@@ -9890,6 +10014,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (20)
@@ -10401,8 +10529,8 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
+  - {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11156,6 +11284,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5294081049975956567, guid: 707c39e2afffacd49be0526d216961bc, type: 3}
   m_PrefabInstance: {fileID: 750109100}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &750784991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750784993}
+  - component: {fileID: 750784992}
+  m_Layer: 0
+  m_Name: Level Lighting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &750784992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750784991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 3
+  m_LightType: 4
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 0000000013dbffa42bd5a2d04d91af50e1c272035f862bf2
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &750784993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750784991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.098936096, y: -0.4632562, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &756992041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13128,6 +13340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13547,6 +13763,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash
@@ -14048,6 +14268,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (10)
@@ -14174,7 +14398,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1257230384}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -14895,6 +15119,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (18)
@@ -16455,6 +16683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16714,6 +16946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17940,6 +18176,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (25)
@@ -18232,6 +18472,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (11)
@@ -19172,80 +19416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::YSort
   sortingOffset: 0
   sortingScale: 100
---- !u!1001 &1257230383
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084238094796155566, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: m_Name
-      value: MC_Base
-      objectReference: {fileID: 0}
-    - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: 'hearts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1695300391}
-    - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: 'hearts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1373042588}
-    - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-      propertyPath: 'hearts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1312455036}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
---- !u!4 &1257230384 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
-  m_PrefabInstance: {fileID: 1257230383}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1265573416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1993246898322021190, guid: 6c3a5edb2049e2b4a94d7702eb227b71, type: 3}
@@ -19472,6 +19642,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (26)
@@ -20969,6 +21143,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (13)
@@ -21264,6 +21442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21653,9 +21835,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.054629628
-    width: 1.0744792
-    height: 0.16666666
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -22120,6 +22302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22246,6 +22432,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2887455542278382968, guid: 539d0a205bcd5e947aab48945b82265f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 3612268014837493438, guid: 539d0a205bcd5e947aab48945b82265f, type: 3}
       propertyPath: levelTransition
       value: 
@@ -22300,9 +22490,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8580110888591624849, guid: 539d0a205bcd5e947aab48945b82265f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1557726155}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539d0a205bcd5e947aab48945b82265f, type: 3}
+--- !u!4 &1441878918 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8580110888591624849, guid: 539d0a205bcd5e947aab48945b82265f, type: 3}
+  m_PrefabInstance: {fileID: 1441878917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1445603263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3868073848825357155, guid: 6b0eb315aaeee084eb6e1ba1d5809cdc, type: 3}
@@ -22644,6 +22842,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (7)
@@ -23483,6 +23685,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (24)
@@ -23861,6 +24067,90 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
   m_PrefabInstance: {fileID: 1595044171}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1557726154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1557726155}
+  - component: {fileID: 1557726156}
+  m_Layer: 0
+  m_Name: Spot Light 2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1557726155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557726154}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.21893016, y: 1.2426964, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1441878918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557726156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557726154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 3
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.758
+  m_Color: {r: 1, g: 0.9267364, b: 0.6650944, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 0000000013dbffa42bd5a2d04d91af50e1c272035f862bf2
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.396
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 72.80898
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.75
+  m_PointLightOuterRadius: 1.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1561503711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24104,6 +24394,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::YSort
   sortingOffset: 0
   sortingScale: 100
+--- !u!1001 &1579103702
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.327
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.511
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084238094796155566, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_Name
+      value: MC_Base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: 'hearts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: 'hearts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078925878550067407, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: 'hearts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150902242322760029, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 26364627}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+--- !u!4 &1579103703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1225340901152178891, guid: b8cbc5330b2602e40842db717fa16c27, type: 3}
+  m_PrefabInstance: {fileID: 1579103702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1579684138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6369756842810448679, guid: bfe0285bbca897b4487ad76c93a1f50b, type: 3}
@@ -24562,6 +24933,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (2)
@@ -25427,6 +25802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25457,6 +25836,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (1)
@@ -25566,6 +25949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25655,6 +26042,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (15)
@@ -26830,6 +27221,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (6)
@@ -27897,6 +28292,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (21)
@@ -28984,6 +29383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem 1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6363012733004521314, guid: 056e7d3ad2ed6f4458dc85c072314d80, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29124,6 +29527,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (3)
@@ -29310,6 +29717,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (23)
@@ -31311,6 +31722,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (8)
@@ -32035,6 +32450,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (9)
@@ -32247,6 +32666,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -794634965
       objectReference: {fileID: 0}
+    - target: {fileID: 1446355036259560463, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827fa13d2925f1a499bd2fb9ee2f65a1, type: 2}
     - target: {fileID: 5115920200815209347, guid: f1a9403840a401648a49863b1389a6bd, type: 3}
       propertyPath: m_Name
       value: Barrel Smash (17)
@@ -32834,5 +33257,6 @@ SceneRoots:
   - {fileID: 615602697}
   - {fileID: 261329957}
   - {fileID: 948523350}
-  - {fileID: 1257230383}
   - {fileID: 111898238}
+  - {fileID: 750784993}
+  - {fileID: 1579103702}
